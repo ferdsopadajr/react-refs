@@ -113,8 +113,9 @@ const AppForwardingRef = () => {
     </div>
   );
 };
-// Usage of useImperativeHandle
-// Usage of forwarding ref
+
+// Usage of useImperativeHandle and forwarding ref
+// Expose limited DOM methods (such as select, focus, click, etc.) to callers
 const TextInputComponent = React.forwardRef((props, ref) => {
   const childRef = React.useRef();
   React.useImperativeHandle(ref, () => ({
@@ -129,7 +130,7 @@ const TextInputComponent = React.forwardRef((props, ref) => {
 const AppUseImperativeHandle = () => {
   const textInput = React.useRef(null);
   const handleClick = () => {
-    console.log("current", textInput.current);
+    console.log("current", textInput.current); // current object's value is no longer an input element, instead, an object containing available methods
     textInput.current.log();
     textInput.current.select();
     document.execCommand("copy");
