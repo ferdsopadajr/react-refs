@@ -59,6 +59,8 @@ const AppCallbackRef = () => {
   );
 };
 
+// The function passed to useEffect will run after the render is committed to
+// the screen
 // Use of useEffect's clean-up function when component is unmounted
 // To reproduce `Warning: Can’t perform a React state update on an unmounted
 // component.`, delay setState inside the unmounted component longer than
